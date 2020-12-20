@@ -53,8 +53,10 @@
 </div>
 
 <ng-template #emptyTemplate>
-  <div *ngIf="!articleService.loading" class="alert alert-danger" role="alert">
+  <div *ngIf="!articleService.loading">
+    <div class="alert alert-danger" role="alert">
     Makale bulunamadı....
+    </div>
   </div>
 </ng-template>
 
@@ -81,26 +83,26 @@
         </div>
       </div>
     </div>
-    <div class="card-footer bg-transparent border-primary">
+    <div class="card-footer bg-dark border-primary">
       <span class="badge badge-pill badge-dark">
-        <i class="fa  fa-calendar"></i> {{ publishDate | date: "dd.MM.yyyy" }}
+        <i class="fa fa-calendar"></i> {{ publishDate | date }}
       </span>
       <span class="mr-1"></span>
       <span class="badge badge-pill badge-success">
-        <i class="fa  fa-folder"></i> {{ categoryName }}
+        <i class="fa fa-folder"></i> {{ categoryName }}
       </span>
       <span class="mr-1"></span>
       <span class="badge badge-pill badge-success">
-        <i class="fa  fa-eye"></i> {{ viewCount }}
+        <i class="fa fa-eye"></i> {{ viewCount }}
       </span>
       <span class="mr-1"></span>
 
       <span class="badge badge-pill badge-primary">
-        <i class="fa  fa-comment"></i> {{ commentCount }}
+        <i class="fa fa-comment"></i> {{ commentCount }}
       </span>
 
       <a
-        [routerLink]="['/makale', title | urlformat, id]"
+        [routerLink]="['/makale', title | urlformat , id]"
         class="btn btn-primary btn-sm float-right"
       >
         devamını oku
@@ -111,9 +113,14 @@
 
 <pagination-controls
   *ngIf="totalCount > pageSize"
-  responsive="true"
   (pageChange)="pageChanged($event)"
+  (pageBoundsCorrection)="pageChanged($event)"
+
+  screenReaderPaginationLabel="Pagination"
+  screenReaderPageLabel="page"
+  screenReaderCurrentLabel="You're on page"
   previousLabel="geri"
   nextLabel="ileri"
 ></pagination-controls>
+
 

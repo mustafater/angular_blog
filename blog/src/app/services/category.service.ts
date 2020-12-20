@@ -6,11 +6,11 @@ import { Category } from '../models/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  private apiUrl: string = 'https://localhost:44349/api/Categories';
+  private apiUrl: string = 'https://localhost:44360/api/Categories';
   constructor(private httpCleint: HttpClient) {}
 
   public getCategories() {
-    return this.httpCleint.get<Category[]>(this.apiUrl);
+    return this.httpCleint.get<Category>(this.apiUrl);
   }
 
   public getCategorybyId(id: number) {

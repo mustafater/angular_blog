@@ -7,10 +7,11 @@ import { Category } from "src/app/models/category";
   styleUrls: ["./menu-category.component.css"]
 })
 export class MenuCategoryComponent implements OnInit {
-  categories: Category[] = [];
+  categories: Category[] | any;
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit() {
+    this.categories=[];
     this.categoryService.getCategories().subscribe(data => {
       this.categories = data;
     });

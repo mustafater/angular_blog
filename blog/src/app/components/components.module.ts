@@ -5,16 +5,17 @@ import { RouterModule } from '@angular/router';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { UrlformatPipe } from '../pipes/urlformat.pipe';
 
 
 
 @NgModule({
-  declarations: [MenuCategoryComponent, PageTitleComponent,NgxPaginationModule, ArticlesComponent],
+  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent,UrlformatPipe],
   imports: [
     CommonModule,
     RouterModule,
     NgxPaginationModule
   ],
-  exports:[MenuCategoryComponent,PageTitleComponent,NgxPaginationModule,ArticlesComponent]
+  exports:[MenuCategoryComponent,PageTitleComponent,ArticlesComponent,UrlformatPipe]
 })
 export class ComponentsModule { }

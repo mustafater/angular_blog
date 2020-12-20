@@ -2,15 +2,15 @@ import { Category } from './category';
 
 export class Article {
 
- id:number | undefined;
- title:string | undefined;
- contentMain:string | undefined;
- contentSummary: string | undefined;
- publishDate:Date | undefined;
- picture:string | undefined;
- viewCount:number | undefined;
- commentCount:number | undefined;
- category:Category | undefined
+ id:number | any;
+ title:string | any;
+ contentMain:string | any;
+ contentSummary: string | any;
+ publishDate:Date | any;
+ picture:string | any;
+ viewCount:number | any;
+ commentCount:number | any;
+ category:Category | any
 
 }
 

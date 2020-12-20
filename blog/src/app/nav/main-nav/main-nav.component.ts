@@ -41,5 +41,12 @@ export class MainNavComponent implements OnInit {
 
   ngOnInit(): void {
   }
+    search(searchText:string) {
+          if (searchText == "" || searchText == null || searchText == undefined) {
+               return false;
+            }
 
+      return this.router.navigateByUrl(`/arama/sayfa/1?s=${searchText}`);
+
+    }
 }

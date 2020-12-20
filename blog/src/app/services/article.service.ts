@@ -11,7 +11,8 @@ export class ArticleService {
 
   constructor(private httpClient:HttpClient) { }
   public loading:boolean=true;
-  private apiUrl:string="https://localhost:44349/api/Articles";
+  private apiUrl:string="https://localhost:44360/api/articles";
+
 
   getArticles(page:number,pageSize:number)
   {
@@ -24,9 +25,32 @@ export class ArticleService {
     }));
 
   }
+
+  getSearchArticles(searchText:string,page:number,pageSize:number){
+    let api=`${this.apiUrl}/SearchArticles/${searchText}/${page}/${pageSize}`;
+    return this.httpClient.get<ArticlePg>(api).pipe(tap(x=>{this.loading=false;}));
+
+  }
+  getArticlesWithCategory(categoryId: number, page: number, pageSize: number) {
+    let api=`${this.apiUrl}/GetArticlesWithCategory/${categoryId}/${page}/${pageSize}`;
+    return this.httpClient.get<ArticlePg>(api).pipe(tap(x=>{
+
+      this.loading=false;
+    }));
+
+  }
+
   getArticle(id:number){
    let api=`${this.apiUrl}/${id}`;
 
-    return this.httpClient.get<Article>(api);
+    return this.httpClient.get<Article>(api).pipe(tap(x=>
+      {
+        this.loading=false;
+      }));
+  }
+
+  getArticlesByMostView(){
+    let api=`${this.apiUrl}/GetArticlesByMostView`;
+    return this.httpClient.get<Article[]>(api);
   }
 }

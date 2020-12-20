@@ -11,10 +11,12 @@ import {ComponentsModule} from '../components/components.module';
 import { MainLayoutComponent } from '../layout/main-layout/main-layout.component';
 import { MainNavComponent } from '../nav/main-nav/main-nav.component';
 import { ArticleComponent } from './article/article.component';
+import { CategoryArticlesComponent } from './category-articles/category-articles.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
-  declarations: [HomeComponent,AboutMeComponent,ContactComponent,MainLayoutComponent,MainNavComponent, ArticleComponent],
+  declarations: [HomeComponent,AboutMeComponent,ContactComponent,MainLayoutComponent,MainNavComponent, ArticleComponent, CategoryArticlesComponent, SearchComponent],
   imports: [
     CommonModule,BrowserModule,HttpClientModule,AppRoutingModule,ComponentsModule
   ]
