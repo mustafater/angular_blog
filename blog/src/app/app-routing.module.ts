@@ -9,6 +9,8 @@ import { ArticleComponent } from './pages/article/article.component';
 import { CategoryArticlesComponent } from './pages/category-articles/category-articles.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { SearchComponent } from './pages/search/search.component';
+import { ArchiveComponent } from './pages/archive/archive.component';
+
 
 
 
@@ -38,6 +40,7 @@ const routes: Routes = [
         path:"kategori/:name/:id",
         component:CategoryArticlesComponent
       },
+
       {
         path:"kategori/:name/:id/sayfa/:page",
         component:CategoryArticlesComponent
@@ -53,6 +56,14 @@ const routes: Routes = [
       {
         path:"arama/search/:page",
         component:SearchComponent
+      },
+      {
+        path:"arsiv/:year/:month/",
+        component:ArchiveComponent
+      },
+      {
+        path:"arsiv/:year/:month/sayfa/:page",
+        component:ArchiveComponent
       },
       {
         //www.domain.com/iletisim

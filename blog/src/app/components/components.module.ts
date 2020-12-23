@@ -6,16 +6,19 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { UrlformatPipe } from '../pipes/urlformat.pipe';
+import { MenuArticleMostViewComponent } from './menu-article-most-view/menu-article-most-view.component';
+import { MenuArchiveComponent } from './menu-archive/menu-archive.component';
 
 
 
 @NgModule({
-  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent,UrlformatPipe],
+  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent,UrlformatPipe, MenuArticleMostViewComponent, MenuArchiveComponent],
   imports: [
     CommonModule,
     RouterModule,
     NgxPaginationModule
   ],
-  exports:[MenuCategoryComponent,PageTitleComponent,ArticlesComponent,UrlformatPipe]
+  exports:[MenuCategoryComponent,PageTitleComponent,ArticlesComponent,UrlformatPipe,
+    MenuArchiveComponent,MenuArticleMostViewComponent]
 })
 export class ComponentsModule { }

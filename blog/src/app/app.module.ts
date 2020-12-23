@@ -8,14 +8,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 
-import { AdminNavComponent } from './nav/admin-nav/admin-nav.component';
 
 @NgModule({
   declarations: [
-    AppComponent,AdminLayoutComponent,
-    AdminNavComponent,
+    AppComponent
 
   ],
   imports: [

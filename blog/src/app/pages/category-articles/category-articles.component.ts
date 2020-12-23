@@ -12,11 +12,11 @@ export class CategoryArticlesComponent implements OnInit {
   page:number=1;
   pageSize:number=5;
   articles: Article[] | any;
-  totalCount: number | undefined;
+  totalCount: number | any;
   loadingItem:number=5;
   ajax:any;
   categoryId:number | any;
-  constructor(private route:ActivatedRoute,private articleService:ArticleService) { }
+  constructor(public route:ActivatedRoute,public articleService:ArticleService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params=>{
