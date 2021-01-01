@@ -72,4 +72,22 @@ export class ArticleService {
     let api=`${this.apiUrl}/ArticleViewCountUp/${id}`;
     return this.httpClient.get(api);
   }
+  getArticleswithoutPg(){
+
+    return this.httpClient.get<Article[]>(this.apiUrl);
+  }
+
+  deleteArticle(id: number) {
+    return this.httpClient.delete(`${this.apiUrl}/${id}`);
+  }
+  saveArticlePicture(image:any){
+
+    return this.httpClient.post<any>(`${this.apiUrl}/SaveArticlePicture`, image);
+
+  }
+  addArticle(article:Article){
+   return  this.httpClient.post(this.apiUrl,article);
+
+  }
+
 }
