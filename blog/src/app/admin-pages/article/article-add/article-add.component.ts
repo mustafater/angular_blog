@@ -5,7 +5,10 @@ import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
 import { MyvalidationService } from 'src/app/services/myvalidation.service';
 import { Router } from '@angular/router';
-import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+
+//import * as DecoupledEditor from '@ckeditor/ckeditor5-build-classic';
+
+//@ckeditor/ckeditor5-build-decoupled-document
 
 @Component({
   selector: 'app-article-add',
@@ -20,7 +23,7 @@ export class ArticleAddComponent implements OnInit {
   loading:boolean | any;
   info:string | unknown;
   categoies:Category[] |any;
-  public onReady( editor: { ui: { getEditableElement: () => { (): any; new(): any; parentElement: { (): any; new(): any; insertBefore: { (arg0: any, arg1: any): void; new(): any; }; }; }; view: { toolbar: { element: any; }; }; }; } ) {
+  public onReady( editor:any ) {
     editor.ui.getEditableElement().parentElement.insertBefore(
         editor.ui.view.toolbar.element,
         editor.ui.getEditableElement()
@@ -63,7 +66,7 @@ export class ArticleAddComponent implements OnInit {
     return category.name;
   }
   upload(files:File){
-    this.fileData=files.target.files[0];
+    this.fileData=files;
     var formData:any= new formData();
     formData.uppend("picture", this.fileData)
     this.articleService.saveArticlePicture(formData).subscribe(data=>{

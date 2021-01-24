@@ -89,5 +89,9 @@ export class ArticleService {
    return  this.httpClient.post(this.apiUrl,article);
 
   }
+  updateArticle(id: number, article: Article) {
+    return this.httpClient.put(`${this.apiUrl}/${id}`, article);
+  }
+
 
 }
